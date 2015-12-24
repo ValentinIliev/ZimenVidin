@@ -3,7 +3,7 @@
 // Creating variables
 var myX = 100, myY = 600;
 var skorostX = 7, skorostY = -50;
-var razdX=-5,razdY=-5,dist=3;
+var razdX=-5,razdY=-5,dist=1;
 
 function update() {
 	myX = myX + skorostX;
@@ -18,17 +18,18 @@ function update() {
 function draw() {
 	// This is how you draw a rectangle
 	var addX=razdX,addY;
-	for(var i=0;i<3;i++)
+	for(var i=0;i<10;i++)
 	{
 		addY=razdY;
-		for(var j=0;j<3;j++)
+		for(var j=0;j<10;j++)
 		{
-			context.fillRect(myX+addX, myY+addY, 3, 3);
+			context.fillStyle="rgb("+Math.floor(Math.random()*256)+","+Math.floor(Math.random()*256)+","+Math.floor(Math.random()*256)+")";
+			context.fillRect(myX+addX, myY+addY, 10, 10);
 			addY+=dist;
 		}
 		addX+=dist;
 	}
-	dist++;
+	dist+=0.3;
 	razdX-=1;
 	razdY-=1;
 }
